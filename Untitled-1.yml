@@ -11,6 +11,10 @@
     image: polinux/stress
 
   tasks:
+    - name: Get aKubeconfig path from env var
+      set_fact:
+        kubeconfig: "{{ lookup('env', 'KUBECONFIG') }}"
+        
     - name: Get the status of app-review pod in robot-shop namespace and register output in var pod_info
       kubernetes.core.k8s_info:
         api_version: v1
