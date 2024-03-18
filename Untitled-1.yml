@@ -1,8 +1,6 @@
 ---
 - name: Scale up resources
   hosts: test
-  environment:
-    KUBECONFIG: "/root/.kube/config"
   vars:
     namespace: robot-shop
     command:
