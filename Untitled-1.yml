@@ -9,7 +9,7 @@
     label: "app: robot-shop"
     name: app-review
     image: polinux/stress
-    kubeconfig_path: "{{ lookup('env', 'K8S_AUTH_KUBECONFIG') }}"
+    kubeconfig_path: "~/.kube/config"
 
   tasks:
     - name: Get the status of app-review pod in robot-shop namespace and register output in var pod_info
