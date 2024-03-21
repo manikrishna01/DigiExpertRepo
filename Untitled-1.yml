@@ -9,10 +9,12 @@
     label: "app: robot-shop"
     name: app-review
     image: polinux/stress
+    kubeconfig_path: "~/.kube/config"
 
   tasks:
     - name: Get the status of app-review pod in robot-shop namespace and register output in var pod_info
       kubernetes.core.k8s_info:
+        kubeconfig: "{{ kubeconfig_path }}"
         api_version: v1
         kind: Pod
         label_selectors:
@@ -27,6 +29,7 @@
 
     - name: Delete pod app-review in robot-shop namespace
       kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
         state: absent
         api_version: v1
         kind: Pod
@@ -41,6 +44,7 @@
 
     - name: Create app-review pod using a container from image var with memory resource request 150Mi and limit as 200Mi and var command and args
       kubernetes.core.k8s:
+        kubeconfig: "{{ kubeconfig_path }}"
         state: present
         definition:
           apiVersion: v1
