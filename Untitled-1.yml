@@ -1,6 +1,6 @@
 ---
 - name: Scale up resources
-  hosts: test
+  hosts: 172.17.204.201
   vars:
     namespace: robot-shop
     command:
