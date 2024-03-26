@@ -1,13 +1,13 @@
 ---
 - name: Scale up resources
   hosts: 172.17.204.201
+  become: yes
+  become_user: root
   vars:
     namespace: robot-shop
     command:
       - "stress"
     args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
-    become: yes
-    become_user: root 
     label: "app: robot-shop"
     name: app-review
     image: polinux/stress
