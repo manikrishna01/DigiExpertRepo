@@ -63,3 +63,5 @@
                     memory: 200Mi
                 command: "{{ command }}"
                 args: "{{ args }}"
+                become: yes
+                become_user: root
