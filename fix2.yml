@@ -6,6 +6,8 @@
     command:
       - "stress"
     args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
+    become: yes
+    become_user: root 
     label: "app: robot-shop"
     name: app-review
     image: polinux/stress
@@ -63,5 +65,3 @@
                     memory: 200Mi
                 command: "{{ command }}"
                 args: "{{ args }}"
-                become: yes
-                become_user: root
