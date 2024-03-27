@@ -39,9 +39,9 @@
         namespace: "{{ namespace }}"
         name: app-review
 
-    - name: Wait for 60 sec
+    - name: Wait for 30 sec
       ansible.builtin.wait_for:
-        timeout: 60
+        timeout: 30
 
     - name: Create app-review pod using a container from image var with memory resource request 150Mi and limit as 200Mi and var command and args
       kubernetes.core.k8s:
